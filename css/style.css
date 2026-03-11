@@ -2,6 +2,10 @@
 	--font-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
 	--font-main: 'Open Sans', var(--font-fallback);
 	--font-headers: 'Roboto', var(--font-fallback);
+	--color-accent: #ee753e;
+	--color-secondary: #272a33;
+	--color-green: #4fcf36;
+	--transition: .2s ease-in-out;
 }
 
 *, *::before, *::after {
@@ -16,6 +20,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	font-family: var(--font-main), sans-serif;
 	line-height: 1.5;
+	color: var(--color-secondary);
 }
 
 .container {
@@ -25,3 +30,74 @@ body {
 	padding: 0 15px;
 }
 
+/* Some elements - start */
+
+
+/* Some elements - end */
+
+/* Header - start */
+.header {
+	width: 100%;
+	position: sticky;
+	top: 0;
+	background-color: #fff;
+	margin-bottom: 80px;
+}
+
+.header__inner {
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header__title-hide {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+}
+
+/* Nav - start */
+.nav {
+	display: flex;
+	column-gap: 66px;
+}
+
+.nav__link {
+	display: inline-block;
+	padding: 12px;
+	color: inherit;
+	text-decoration: none;
+	position: relative;
+	text-transform: uppercase;
+}
+
+.nav__link::after {
+	position: absolute;
+	content: '';
+	bottom: 12px;
+	left: 50%;
+	height: 1px;
+	width: 0;
+	pointer-events: none;
+	background-color: var(--color-secondary);
+	transition: width var(--transition), left var(--transition);
+}
+
+.nav__link:hover::after, .nav__link.active::after {
+	width: calc(100% - 24px);
+	left: 12px;
+
+}
+
+.nav__link:last-child {
+	margin-right: -12px;
+}
+/* Nav - end */
+/* Header - end */
