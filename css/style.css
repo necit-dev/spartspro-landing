@@ -2,9 +2,13 @@
 	--font-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
 	--font-main: 'Open Sans', var(--font-fallback);
 	--font-headers: 'Roboto', var(--font-fallback);
-	--color-accent: #ee753e;
-	--color-secondary: #272a33;
-	--color-green: #4fcf36;
+	--color-accent: #EE753E;
+	--color-secondary: #272A33;
+
+	--color-green: #4FCF36;
+	--color-card-bg: #EEF3F8;
+	--color-card-stroke: #E0E6ED;
+
 	--transition: .2s ease-in-out;
 }
 
@@ -25,13 +29,46 @@ body {
 
 .container {
 	width: 100%;
-	max-width: 1440px;
+	max-width: 1470px;
 	margin: 0 auto;
 	padding: 0 15px;
 }
 
 /* Some elements - start */
+.title {
+	font-size: 36px;
+	font-family: var(--font-headers), sans-serif;
+	line-height: 1.35;
+	text-transform: uppercase;
+}
 
+.btn {
+	outline: none;
+	border: none;
+	font-family: inherit;
+	display: inline-block;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 18px;
+	line-height: 1.45;
+
+	color: #fff;
+	background-color: var(--color-secondary);
+
+	padding: 8px 30px 12px;
+	border-radius: 8px;
+	transition: background-color var(--transition), opacity var(--transition);
+}
+
+.btn:hover {
+	background-color: var(--color-accent);
+}
+
+.btn:disabled {
+	opacity: 0.2;
+	cursor: not-allowed;
+	background-color: var(--color-secondary);
+}
 
 /* Some elements - end */
 
@@ -42,6 +79,12 @@ body {
 	top: 0;
 	background-color: #fff;
 	margin-bottom: 80px;
+}
+
+
+.header__logo-link {
+	display: block;
+	line-height: 1;
 }
 
 .header__inner {
@@ -66,7 +109,7 @@ body {
 /* Nav - start */
 .nav {
 	display: flex;
-	column-gap: 66px;
+	column-gap: 57px;
 }
 
 .nav__link {
@@ -101,3 +144,76 @@ body {
 }
 /* Nav - end */
 /* Header - end */
+
+/* Recommended - start */
+
+.recommended {
+	margin-bottom: 4px;
+}
+
+.recommended__title {
+	margin-bottom: 30px;
+}
+
+.recommended__list {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 30px;
+	margin-bottom: 30px;
+}
+
+.recommended__center {
+	display: flex;
+	justify-content: center;
+}
+
+/* Card - start */
+.card {
+	display: flex;
+	border-radius: 8px;
+	border: 1px solid var(--color-card-stroke);
+}
+
+.card__img {
+	background-color: var(--color-card-bg);
+	border-radius: 8px;
+	width: 220px;
+	height: 220px;
+	margin: -1px 0 -1px -1px;
+}
+
+.card__content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 31px 30px;
+}
+
+.card__name {
+	flex: 1;
+	font-size: 18px;
+	/* Нужно добавить поведение при переполнении (не больше 3 строк) */
+	line-height: 1.2;
+	font-family: var(--font-headers), sans-serif;
+}
+
+.card__available {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 10px;
+}
+
+.card__tick {
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background-color: var(--color-green);
+}
+
+.card__tick-warn {
+	background-color: var(--color-accent);
+}
+/* Card - end */
+
+/* Recommended - end */
