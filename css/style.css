@@ -8,6 +8,8 @@
 	--color-green: #4FCF36;
 	--color-card-bg: #EEF3F8;
 	--color-card-stroke: #E0E6ED;
+	--color-nav-stroke: #E0E6ED;
+	--color-header-stroke: #EAEFF4;
 
 	--transition: .2s ease-in-out;
 }
@@ -162,6 +164,68 @@ body {
 .nav__link:last-child {
 	margin-right: -12px;
 }
+/* Burger - start */
+.burger {
+	display: none;
+	width: 50px;
+	height: 50px;
+	border: 1px solid var(--color-secondary);
+	border-radius: 8px;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: border var(--transition);
+}
+
+.burger__img {
+	width: 23px;
+	height: 2px;
+	background-color: var(--color-secondary);
+	position: relative;
+	transition: background-color var(--transition);
+}
+
+.burger:hover {
+	border: 1px solid var(--color-accent);
+}
+
+.burger:hover .burger__img,
+.burger:hover .burger__img::before,
+.burger:hover .burger__img::after {
+	background-color: var(--color-accent);
+}
+
+.burger-active>.burger__img {
+	background-color: transparent;
+}
+
+.burger-active:hover>.burger__img {
+	background-color: transparent;
+}
+
+.burger__img::before, .burger__img::after {
+	content: '';
+	position: absolute;
+	top: -8px;
+	width: 23px;
+	height: 2px;
+	background-color: var(--color-secondary);
+	transition: background-color var(--transition);
+}
+
+.burger__img::after {
+	top: 8px;
+}
+.burger-active>.burger__img::before {
+	top: 0;
+	rotate: 45deg;
+}
+.burger-active>.burger__img::after {
+	top: 0;
+	rotate: -45deg;
+}
+/* Burger - end */
+
 /* Nav - end */
 /* Header - end */
 
@@ -298,9 +362,19 @@ body {
 /* About - end */
 
 @media(max-width: 1439px) {
+
+	.body-open-nav {
+		overflow: hidden;
+	}
+
 	.header {
 		margin-bottom: 50px;
 	}
+
+	.header-open-nav {
+		border-bottom: 1px solid var(--color-header-stroke);
+	}
+
 	.container {
 		max-width: clamp(606px, 70vw, 798px);
 	}
@@ -310,8 +384,30 @@ body {
 	}
 
 	.nav {
-		display: none;
+		position: fixed;
+		top: 80px;
+		bottom: 0;
+		width: 100%;
+		max-width: clamp(606px, 70vw, 798px);
+		margin: 0 auto;
+		margin-top: 1px;
+		padding-top: 9px;
+		background-color: #fff;
+		flex-direction: column;
+		align-items: flex-start;
 	}
+
+	.nav__link {
+		width: 100%;
+		padding: 20px 0;
+		border-bottom: 1px solid var(--color-nav-stroke);
+	}
+
+
+	.burger {
+		display: flex;
+	}
+
 	.recommended__list {
 		display: flex;
 		flex-direction: column;
