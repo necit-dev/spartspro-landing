@@ -20,6 +20,17 @@ body, h1, h2, h3, h4, h5, h6, p {
 	margin: 0;
 }
 
+ul, ol, li {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
 body {
 	-webkit-font-smoothing: antialiased;
 	font-family: var(--font-main), sans-serif;
@@ -37,6 +48,7 @@ body {
 /* Some elements - start */
 .title {
 	font-size: 36px;
+	font-weight: 700;
 	font-family: var(--font-headers), sans-serif;
 	line-height: 1.35;
 	text-transform: uppercase;
@@ -223,5 +235,62 @@ body {
 	background-color: var(--color-accent);
 }
 /* Card - end */
-
 /* Recommended - end */
+
+/* About - start */
+.about {
+	margin-bottom: 50px;
+}
+
+.about__title {
+	margin-bottom: 30px;
+}
+
+.about__inner {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 30px;
+}
+
+.about__image>img {
+	border-radius: 8px;
+}
+
+.about__image-wide {
+	margin-bottom: 30px;
+}
+
+.about__small_images {
+	display: flex;
+	gap: 33px;
+}
+
+.about__info {
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+
+.about__list {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	list-style-type: none;
+	margin-bottom: 20px;
+}
+
+.about__item {
+	display: flex;
+	gap: 15px;
+}
+
+.about__tick {
+	width: 24px;
+	height: 24px;
+	background-color: var(--color-accent);
+	border-radius: 50%;
+}
+
+.about__text {
+	margin-bottom: 30px;
+}
+/* About - end */
