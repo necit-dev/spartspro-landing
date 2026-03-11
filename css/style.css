@@ -50,10 +50,7 @@ html {
 	scrollbar-gutter: stable;
 }
 
-.main {
-	visibility: visible;
-	opacity: 1
-}
+
 
 body {
 	-webkit-font-smoothing: antialiased;
@@ -110,6 +107,14 @@ body {
 	background-color: var(--color-secondary);
 }
 
+.no-transitions * {
+	-webkit-transition: none !important;
+	-moz-transition: none !important;
+	-ms-transition: none !important;
+	-o-transition: none !important;
+	transition: none !important;
+}
+
 /* Some elements - end */
 
 /* Header - start */
@@ -156,7 +161,6 @@ body {
 	display: flex;
 	column-gap: 57px;
 	z-index: 1000;
-	opacity: 1 !important;
 }
 
 .main-open-nav {
@@ -426,7 +430,7 @@ body {
 	.main {
 		visibility: visible;
 		opacity: 1;
-		transition: opacity var(--transition), visibility var(--transition);
+		/*transition: opacity var(--transition), visibility var(--transition);*/
 	}
 
 	.main-open-nav {
@@ -461,22 +465,24 @@ body {
 		width: 100%;
 		max-width: clamp(576px, 70vw, 768px);
 
-		margin: 0 auto;
-		margin-top: 1px;
+		margin: 1px auto 0;
 		padding-top: 9px;
 		background-color: #fff;
 		flex-direction: column;
 		align-items: flex-start;
+
 		visibility: hidden;
 		opacity: 0;
-		pointer-events: none;
-		transition: visibility var(--transition);
+		/*pointer-events: none;*/
+		transition: visibility var(--transition),
+			opacity var(--transition);
 	}
 
 	.mobile-show {
-		/*opacity: 1;*/
+		opacity: 1;
 		visibility: visible;
-		pointer-events: auto;
+		transition: opacity var(--transition), visibility 0s 0s;
+		/*pointer-events: auto;*/
 	}
 
 	.nav__link {

@@ -19,28 +19,39 @@ burger.addEventListener("click", () => {
 		nav.classList.remove(menuOpenClasses.nav);
 		burger.classList.remove(menuOpenClasses.burger);
 		main.classList.remove(menuOpenClasses.main);
-		nav.animate([
-			{opacity: 0}
-		], {
-			duration: 200,
-			fill: "forwards",
-			easing: "ease-in-out"
-		});
+		// nav.animate([
+		// 	{opacity: 0}
+		// ], {
+		// 	duration: 200,
+		// 	fill: "forwards",
+		// 	easing: "ease-in-out"
+		// });
 	}else {
 		body.classList.add(menuOpenClasses.body);
 		header.classList.add(menuOpenClasses.header);
 		nav.classList.add(menuOpenClasses.nav);
 		burger.classList.add(menuOpenClasses.burger);
 		main.classList.add(menuOpenClasses.main);
-		nav.animate([
-			{opacity: 1}
-		], {
-			duration: 200,
-			fill: "forwards",
-			easing: "ease-in-out"
-		});
+		// nav.animate([
+		// 	{opacity: 1}
+		// ], {
+		// 	duration: 200,
+		// 	fill: "forwards",
+		// 	easing: "ease-in-out"
+		// });
 	}
 })
+
+const breakpoint = window.matchMedia("(max-width: 1439px)");
+
+const handleBreakpointChange = () => {
+	document.documentElement.classList.add("no-transitions")
+	setTimeout(() => {
+		document.documentElement.classList.remove("no-transitions")
+
+	}, 50)
+}
+breakpoint.addEventListener("change", handleBreakpointChange);
 
 
 const goods = [
