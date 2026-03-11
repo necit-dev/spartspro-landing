@@ -119,6 +119,7 @@ body {
 	text-decoration: none;
 	position: relative;
 	text-transform: uppercase;
+	transition: color var(--transition);
 }
 
 .nav__link::after {
@@ -130,13 +131,20 @@ body {
 	width: 0;
 	pointer-events: none;
 	background-color: var(--color-secondary);
-	transition: width var(--transition), left var(--transition);
+	transition: width var(--transition), left var(--transition), background-color var(--transition);
 }
 
-.nav__link:hover::after, .nav__link.active::after {
+.nav__link.active::after {
 	width: calc(100% - 24px);
 	left: 12px;
+}
 
+.nav__link:hover {
+	color: var(--color-accent);
+}
+
+.nav__link:hover::after {
+	background-color: var(--color-accent);
 }
 
 .nav__link:last-child {
@@ -145,8 +153,8 @@ body {
 /* Nav - end */
 /* Header - end */
 
-/* Recommended - start */
 
+/* Recommended - start */
 .recommended {
 	margin-bottom: 4px;
 }
