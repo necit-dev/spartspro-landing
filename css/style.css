@@ -40,7 +40,7 @@ body {
 
 .container {
 	width: 100%;
-	max-width: 1470px;
+	max-width: clamp(1190px, 80.5vw, 1470px);
 	margin: 0 auto;
 	padding: 0 15px;
 }
@@ -198,6 +198,7 @@ body {
 	background-color: var(--color-card-bg);
 	border-radius: 8px;
 	width: 220px;
+	min-width: 220px;
 	height: 220px;
 	margin: -1px 0 -1px -1px;
 }
@@ -222,6 +223,7 @@ body {
 	align-items: center;
 	gap: 10px;
 	margin-bottom: 10px;
+	line-height: 1.45;
 }
 
 .card__tick {
@@ -294,3 +296,94 @@ body {
 	margin-bottom: 30px;
 }
 /* About - end */
+
+@media(max-width: 1439px) {
+	.header {
+		margin-bottom: 50px;
+	}
+	.container {
+		max-width: clamp(606px, 70vw, 798px);
+	}
+
+	.title {
+		font-size: clamp(20px, 2.6vw,30px);
+	}
+
+	.nav {
+		display: none;
+	}
+	.recommended__list {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+
+	.recommended {
+		margin-bottom: 50px;
+	}
+
+	.about__inner {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+@media(max-width: 650px) {
+	.container {
+		max-width: 390px;
+	}
+
+	.btn {
+		font-size: 16px;
+
+	}
+
+	.recommended__list {
+		display: grid;
+		gap: 20px;
+	}
+
+	.recommended__list {
+		margin-bottom: 20px;
+	}
+
+	.card {
+		flex-direction: column;
+		width: 170px;
+		max-width: 170px;
+	}
+	.card__img, .card__img>img {
+		width: 170px;
+		max-width: 170px;
+		height: 170px;
+		max-height: 170px;
+		min-width: auto
+	}
+	.card__content {
+		padding: 10px;
+	}
+
+	.card__name {
+		min-height: 100px;
+	}
+
+	.card__available {
+		font-size: 14px;
+	}
+
+	.about__text {
+		margin-bottom: 20px;
+	}
+}
+
+@media(max-width: 389px) {
+	.title {
+		text-align: center;
+	}
+
+	.recommended__list {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
